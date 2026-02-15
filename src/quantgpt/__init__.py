@@ -5,4 +5,7 @@ __all__ = [
     "forecasting",
     "portfolio",
     "dashboard",
+    "agents",
+    "tools",
+    "api",
 ]
