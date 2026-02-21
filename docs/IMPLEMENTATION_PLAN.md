@@ -73,7 +73,7 @@ test(api): add recommendation endpoint test
 | 0 | *(setup)* | 1-2 days | ⬜ |
 | 1 | feature/project-scaffolding | 2-3 days | ✅ |
 | 2 | feature/fastapi-foundation | 2-3 days | ✅ |
-| 3 | feature/single-agent | 4-5 days | ⬜ |
+| 3 | feature/single-agent | 4-5 days | ✅ |
 | 4 | feature/multi-agent | 5-6 days | ⬜ |
 | 5 | feature/kafka-integration | 4-5 days | ⬜ |
 | 6 | feature/agentops | 3-4 days | ⬜ |
@@ -160,12 +160,12 @@ test(api): add recommendation endpoint test
 - **Tools:** LangChain `@tool`, function calling, schema
 
 **Build:**
-- [ ] `ResearchAgent` with LangGraph:
+- [x] `ResearchAgent` with LangGraph:
   - Node 1: Fetch/parse news (tool)
   - Node 2: Analyze sentiment (tool)
   - Node 3: LLM summarize and produce insight
-- [ ] Two tools: `fetch_market_news`, `analyze_sentiment`
-- [ ] Integrate with FastAPI: `POST /api/v1/research` → run agent → return insight
+- [x] Two tools: `fetch_market_news`, `analyze_sentiment`
+- [x] Integrate with FastAPI: `POST /api/v1/research` → run agent → return insight
 
 **Flow:** `[START] → fetch_news → analyze_sentiment → llm_summarize → [END]`
 

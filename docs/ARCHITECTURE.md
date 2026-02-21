@@ -68,6 +68,18 @@ stateDiagram-v2
     llm_summarize --> [*]
 ```
 
+#### Research Agent Implementation
+
+The ResearchAgent (`src/quantgpt/agents/research_agent.py`) is a LangGraph `StateGraph` with three nodes:
+
+1. **fetch_news** — Calls `FetchMarketNewsTool` with the user query (symbol/topic). Returns mock news for Phase 3; real API integration (NewsAPI, Finnhub) can follow.
+2. **analyze_sentiment** — Calls `SentimentTool`, which uses `quantgpt.nlp.analyze_sentiment` (VADER). Returns a score in [-1, 1].
+3. **llm_summarize** — Uses `ChatOllama` to synthesize news + sentiment into a brief investment insight.
+
+**State schema (TypedDict):** `query`, `news`, `sentiment_score`, `insight`. Each node reads from and writes partial updates to the shared state.
+
+**API:** `POST /api/v1/research` with `{"query": "AAPL"}` returns `{"insight": "..."}`. Config: `OLLAMA_BASE_URL`, `OLLAMA_MODEL` env vars.
+
 ### 3. Multi-Agent Flow — Phase 4
 
 ```mermaid

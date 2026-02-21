@@ -2,5 +2,6 @@
 
 from .base import BaseAgent, BaseTool
 from .math_agent import MathAgent
+from .research_agent import ResearchAgent
 
-__all__ = ["BaseAgent", "BaseTool", "MathAgent"]
+__all__ = ["BaseAgent", "BaseTool", "MathAgent", "ResearchAgent"]

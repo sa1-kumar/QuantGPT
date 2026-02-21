@@ -6,7 +6,7 @@ OpenAPI docs at /docs, spec at /openapi.json.
 
 from fastapi import FastAPI
 
-from quantgpt.api.routes import health, models
+from quantgpt.api.routes import health, models, research
 
 __version__ = "0.1.0"
 
@@ -24,6 +24,7 @@ def create_app() -> FastAPI:
 
     app.include_router(health.router)
     app.include_router(models.router)
+    app.include_router(research.router)
 
     return app
 
