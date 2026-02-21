@@ -1,0 +1,66 @@
+Metadata-Version: 2.4
+Name: quantgpt
+Version: 0.1.0
+Summary: AI-powered multimodal investment advisor
+Author: Sawan Kumar
+License: MIT
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: fastapi>=0.109.0
+Requires-Dist: uvicorn[standard]>=0.27.0
+Requires-Dist: langgraph>=0.2.0
+Requires-Dist: langchain-core>=0.3.0
+Requires-Dist: langchain-community>=0.3.0
+Requires-Dist: langchain-ollama>=0.2.0
+Requires-Dist: vaderSentiment>=3.3.2
+Provides-Extra: dev
+Requires-Dist: pytest>=7.0; extra == "dev"
+Requires-Dist: httpx>=0.26.0; extra == "dev"
+Dynamic: license-file
+
+# QuantGPT
+
+**AI-Powered Multimodal Investment Advisor**
+
+QuantGPT is an open-source project that combines NLP, time-series forecasting and reinforcement learning to provide intelligent investment recommendations. The project is evolving into an **Agentic AI platform** with multi-agent systems, FastAPI, Kafka, and AgentOps.
+
+## Documentation (Implementation & Learning)
+
+| Document | Purpose |
+|----------|---------|
+| [Implementation Plan](docs/IMPLEMENTATION_PLAN.md) | Phased roadmap, branching strategy, phase checklists |
+| [Architecture](docs/ARCHITECTURE.md) | System overview, diagrams, component descriptions |
+| [Learning Log](docs/LEARNING_LOG.md) | Track learnings per phase |
+| [Interview Prep](docs/INTERVIEW_PREP.md) | Project pitch, Q&A, tech one-liners |
+
+## Features
+- Real-time financial news and Twitter sentiment
+- Stock price forecasting (LSTM, Prophet)
+- Portfolio optimization (Reinforcement Learning)
+- Interactive dashboard (Streamlit)
+
+## Development
+
+The codebase follows a simple `src/` layout. Core modules live under `src/quantgpt` and tests reside in `tests/`.
+
+### Setup
+1. Create a virtual environment and install the project in editable mode:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   pip install -e ".[dev]"
+   ```
+2. Run the unit tests with `pytest`:
+   ```bash
+   pytest
+   ```
+
+### Run the API (Phase 2+)
+```bash
+quantgpt-api
+# or: uvicorn quantgpt.api.main:app --reload --host 0.0.0.0 --port 8000
+```
+- Docs: http://localhost:8000/docs
+- Health: http://localhost:8000/health
+- Models: http://localhost:8000/api/v1/models

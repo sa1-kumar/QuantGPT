@@ -1,0 +1,2 @@
+[console_scripts]
+quantgpt-api = quantgpt.api.main:run
